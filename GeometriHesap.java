@@ -12,6 +12,13 @@ import java.util.Scanner;
 
 public class GeometriHesap {
 
+    // METOT 0: Yazdırma
+    public static void sonucuYazdir(String etiket, double deger) {
+
+        System.out.printf("%-10s: %.2f cm\n", etiket, deger);
+
+    }
+
     // METOT 1: Kare alani
     public static double calculateSquareArea(double side) {
         // Alan = kenar * kenar
@@ -130,31 +137,23 @@ public class GeometriHesap {
 
         System.out.printf("\nKARE (kenar: %.1f cm):\n", squareSide);
         // Alan ve cevre yazdir
-        System.out.print("Kare'nin alani: ");
-        System.out.printf("%.2f \n",calculateSquareArea(squareSide));
-        System.out.print("Karenin Çevresi: ");
-        System.out.printf("%.2f \n",calculateSquarePerimeter(squareSide));
+        sonucuYazdir("Kare'nin alani: ", calculateSquareArea(squareSide));
+        sonucuYazdir("Kare'nin Çevresi: ", calculateSquarePerimeter(squareSide));
 
         System.out.printf("\nDIKDORTGEN (%.1f x %.1f cm):\n", rectWidth, rectHeight);
         // Alan ve cevre yazdir
-        System.out.print("Dikdörtgenin Alani: ");
-        System.out.printf("%.2f \n",calculateRectangleArea(rectWidth, rectHeight));
-        System.out.print("Dikdörtgenin Çevresi: ");
-        System.out.printf("%.2f \n",calculateRectanglePerimeter(rectWidth, rectHeight));
+        sonucuYazdir("Dikdörtgen'in alani: ", calculateRectangleArea(rectWidth, rectHeight));
+        sonucuYazdir("Dikdörtgen'in Çevresi: ", calculateRectanglePerimeter(rectWidth, rectHeight));
 
         System.out.printf("\nDAIRE (yaricap: %.1f cm):\n", radius);
         // Alan ve cevre yazdir
-        System.out.print("Dairenin Alani: ");
-        System.out.printf("%.2f \n",calculateCircleArea(radius));
-        System.out.print("Dairenin Çevresi: ");
-        System.out.printf("%.2f \n",calculateCircleCircumference(radius));
+        sonucuYazdir("Daire'nin alani: ", calculateCircleArea(radius));
+        sonucuYazdir("Daire'nin Çevresi: ", calculateCircleCircumference(radius));
 
         System.out.printf("\nUCGEN (taban: %.1f, yukseklik: %.1f cm):\n", base, height);
         // Alan ve cevre yazdir
-        System.out.print("Üçgenin Alani: ");
-        System.out.printf("%.2f \n",calculateTriangleArea(base, height));
-        System.out.print("Üçgenin Çevresi: ");
-        System.out.printf("%.2f \n",calculateTrianglePerimeter(side1, side2, side3));
+        sonucuYazdir("Üçgen'in alani: ", calculateTriangleArea(base, height));
+        sonucuYazdir("Üçgen'in Çevresi: ", calculateTrianglePerimeter(side1, side2, side3));
 
         System.out.println("========================================");
 
