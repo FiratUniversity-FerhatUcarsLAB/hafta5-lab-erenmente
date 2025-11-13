@@ -1,7 +1,7 @@
 /*
- * Ad Soyad: [ADINIZI BURAYA YAZIN]
- * Ogrenci No: [OGRENCI NUMARANIZI BURAYA YAZIN]
- * Tarih: [TARIHI BURAYA YAZIN]
+ * Ad Soyad: [Muhammet Eren Mente]
+ * Ogrenci No: [250542026]
+ * Tarih: [13/11/2025]
  * Aciklama: Gorev 3 - E-Ticaret Sepet Hesaplayici
  *
  * Bu program 3 adet urunun sepet tutarini
@@ -13,43 +13,57 @@ import java.util.Scanner;
 public class SepetHesap {
 
     // Sabitler
-    final static double VAT_RATE = 0.18;      // KDV Oranı (%18)
+    final static double VAT_RATE = 0.18; // KDV Oranı (%18)
     final static double SHIPPING_FEE = 29.99; // Sabit kargo ücreti (TL)
+    // METOT 0: Yazdırma
+
+    public static void sonucuYazdir(String etiket, double deger) {
+
+        System.out.printf("%-10s: %.2f tl", etiket, deger);
+
+    }
 
     // METOT 1: Bir urunun toplam fiyatini hesaplar (fiyat * adet)
     public static double calculateLineTotal(double price, int quantity) {
         // Satir Toplami = fiyat * adet
-        return 0.0; // Degistirin
+        double rowTotal = price * quantity;
+        return rowTotal; // Degistirin
     }
 
     // METOT 2: Sepetteki 3 urunun ara toplamini hesaplar
     public static double calculateSubtotal(double line1, double line2, double line3) {
         // Ara Toplam = urun1 + urun2 + urun3
-        return 0.0; // Degistirin
+        double subTotal = line1 + line2 + line3;
+        return subTotal; // Degistirin
     }
 
     // METOT 3: Indirim tutarini hesaplar
     public static double calculateDiscountAmount(double subtotal, double discountPercentage) {
         // Indirim Tutari = araToplam * (indirimYuzdesi / 100)
-        return 0.0; // Degistirin
+        double discountAmount = subtotal * (discountPercentage / 100);
+
+        return discountAmount; // Degistirin
     }
 
     // METOT 4: Indirimli fiyati hesaplar (araToplam - indirimTutari)
     public static double applyDiscount(double subtotal, double discountAmount) {
         // Indirimli Toplam = araToplam - indirimTutari
-        return 0.0; // Degistirin
+        double discountTotal = subtotal - discountAmount;
+        return discountTotal; // Degistirin
     }
 
     // METOT 5: KDV tutarini hesaplar (indirimliTutar * kdvOrani)
     public static double calculateVAT(double discountedTotal, double vatRate) {
         // KDV Tutari = indirimliTutar * VAT_RATE
-        return 0.0; // Degistirin
+        double vatAmount = discountedTotal * vatRate;
+        return vatAmount; // Degistirin
     }
 
     // METOT 6: Genel toplami hesaplar (indirimliTutar + kdv + kargo)
     public static double calculateGrandTotal(double discountedTotal, double vatAmount, double shippingFee) {
         // Genel Toplam = indirimliTutar + kdvTutari + kargoUcreti
-        return 0.0; // Degistirin
+        double grandTotal = discountedTotal + vatAmount + shippingFee;
+        return grandTotal; // Degistirin
     }
 
     public static void main(String[] args) {
@@ -85,22 +99,19 @@ public class SepetHesap {
 
         // HESAPLAMALARI YAP - Metotlari cagir
         // 1. Urunlerin satis toplamlarini hesapla
-    
-
+        double line1Total = calculateLineTotal(price1, qty1);
+        double line2Total = calculateLineTotal(price2, qty2);
+        double line3Total = calculateLineTotal(price3, qty3);
         // 2. Ara toplami hesapla
-
+        double subtotal = calculateSubtotal(line1Total, line2Total, line3Total);
         // 3. Indirim tutarini hesapla
-      
-
+        double discountAmount = calculateDiscountAmount(subtotal, discountPercent);
         // 4. Indirimli toplami hesapla
-      
-
+        double discountedTotal = applyDiscount(subtotal, discountAmount);
         // 5. KDV tutarini hesapla (Indirimli toplam uzerinden)
-      
-
+        double vatAmount = calculateVAT(discountedTotal, VAT_RATE);
         // 6. Genel toplami hesapla
-
-
+        double grandTotal = calculateGrandTotal(discountedTotal, vatAmount, vatAmount);
         // SONUCLARI YAZDIR
         System.out.println("\n========================================");
         System.out.println("           SIPARIS OZETI");
