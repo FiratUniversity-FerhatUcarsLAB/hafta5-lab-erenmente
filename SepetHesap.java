@@ -15,13 +15,6 @@ public class SepetHesap {
     // Sabitler
     final static double VAT_RATE = 0.18; // KDV Oranı (%18)
     final static double SHIPPING_FEE = 29.99; // Sabit kargo ücreti (TL)
-    // METOT 0: Yazdırma
-
-    public static void sonucuYazdir(String etiket, double deger) {
-
-        System.out.printf("%-10s: %.2f tl", etiket, deger);
-
-    }
 
     // METOT 1: Bir urunun toplam fiyatini hesaplar (fiyat * adet)
     public static double calculateLineTotal(double price, int quantity) {
